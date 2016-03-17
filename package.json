@@ -1,0 +1,23 @@
+{
+  "name": "electron-osx-prefs",
+  "version": "0.0.0",
+  "description": "Access OSX System Preferences for your Electron App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylan-cooper/electron-osx-prefs.git"
+  },
+  "keywords": [
+    "electron",
+    "appearance"
+  ],
+  "author": "dylan-cooper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dylan-cooper/electron-osx-prefs/issues"
+  },
+  "homepage": "https://github.com/dylan-cooper/electron-osx-prefs#readme"
+}
