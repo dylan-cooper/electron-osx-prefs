@@ -4,7 +4,7 @@
   "description": "Access OSX System Preferences for your Electron App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/dylan-cooper/electron-osx-prefs/issues"
   },
-  "homepage": "https://github.com/dylan-cooper/electron-osx-prefs#readme"
+  "homepage": "https://github.com/dylan-cooper/electron-osx-prefs#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
 }

@@ -1,10 +1,16 @@
 const cp = require('child_process');
 
 var getSystemDefault = function(key){
-  val = cp.execSync('defaults read -g ' + key).toString();
-  return val;
+  try {
+    val = cp.execSync(
+      'defaults read -g ' + key, 
+      stdio=['ignore', 'ignore', 'ignore']
+    );
+    return val.toString();
+  } catch(e) {
+    return null;
+  }
 }
-app.getSystemDefault = getSystemDefault;
 
 exports = module.exports = function(electronApp){
   exports.electronApp = electronApp;
@@ -27,7 +33,12 @@ exports = module.exports = function(electronApp){
 
   electronApp.getHighlightColor = function(){
     var string_rep = getSystemDefault('AppleHighlightColor');
-    var num_list = string_rep.toString().split(' ').map((i) => Math.round(Number(i)*255));
+    if (string_rep === null){
+      //default blue highlight color
+      num_list = [165, 203, 255];
+    } else {
+      num_list = string_rep.toString().split(' ').map((i) => Math.round(Number(i)*255));
+    }
     return num_list;
   }
 
@@ -49,7 +60,7 @@ exports = module.exports = function(electronApp){
   );
 
   electronApp.getScrollbarVisibility = function(){
-    return getSystemDefault('AppleShowScrollBars');
+    return getSystemDefault('AppleShowScrollBars').trim();
   }
 
   //Scrollbar Paging
